@@ -1,86 +1,159 @@
-
- 📰 News Topic Discovery & Analysis
+# 📰 News Topic Discovery & Analysis
 
 ![Python](https://img.shields.io/badge/Python-3.8+-blue?logo=python)
 ![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?logo=streamlit&logoColor=white)
 ![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-F7931E?logo=scikit-learn&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-yellow)
 
-An intelligent dashboard that scrapes live news via RSS feeds and applies **Unsupervised Machine Learning** to categorize headlines into thematic clusters. 
+An intelligent dashboard that fetches live news articles using RSS feeds and applies **Unsupervised Machine Learning** to automatically categorize headlines into thematic clusters.
 
-[Explore the Code](#-project-structure) • [Installation](#-installation) • [How it Works](#-the-nlp-pipeline)
-
-
-
+---
 
 ## 🚀 Features
 
-*   **Real-Time Data:** Fetches live articles from **BBC** and **The Hindu** using `feedparser`.
-*   **Smart Preprocessing:** Automated text cleaning (lowercase, regex noise removal, and stop-word filtering).
-*   **ML-Driven Clustering:** Uses **TF-IDF Vectorization** and **K-Means** to group similar stories without manual labels.
-*   **Dynamic UI:** Adjust the number of topics via a sidebar slider in real-time.
-*   **Visual Insights:** Built-in **Matplotlib** charts to visualize topic frequency.
-*   **Data Portability:** Export your clustered news data as a CSV directly from the browser.
+- ✅ Fetches live news articles from **BBC** and **The Hindu**
+- ✅ Real-time RSS parsing using `feedparser`
+- ✅ Smart NLP preprocessing and text cleaning
+- ✅ TF-IDF vectorization for feature extraction
+- ✅ K-Means clustering for topic discovery
+- ✅ Interactive Streamlit dashboard
+- ✅ Dynamic topic selection using sidebar controls
+- ✅ Topic frequency visualization with Matplotlib
+- ✅ Export analyzed news data as CSV
 
+---
 
 ## 📖 The NLP Pipeline
 
-To turn raw headlines into organized topics, the app follows these steps:
+The application transforms raw news headlines into meaningful topic clusters using the following pipeline:
 
-1.  **Text Preprocessing:** Headlines are stripped of special characters and common "stop words" (like *the, is, and*) that don't carry topical meaning.
-2.  **TF-IDF Vectorization:** Words are converted into numerical vectors. 
-    *   *Term Frequency:* How often a word appears.
-    *   *Inverse Document Frequency:* Down-weights words that appear too often across all articles (like "news").
-3.  **K-Means Clustering:** The algorithm calculates the "centroid" of article vectors to find $k$ distinct groups.
-4.  **Top Keyword Extraction:** The app identifies the words closest to each cluster center to describe the topic.
+### 1️⃣ Text Preprocessing
+- Converts text to lowercase
+- Removes special characters using regex
+- Removes stopwords (e.g., *the, is, and*)
 
+### 2️⃣ TF-IDF Vectorization
+Converts textual data into numerical vectors.
+
+- **Term Frequency (TF):** Measures how often a word appears
+- **Inverse Document Frequency (IDF):** Reduces importance of overly common words
+
+### 3️⃣ K-Means Clustering
+Groups similar news articles into clusters using unsupervised learning.
+
+### 4️⃣ Topic Keyword Extraction
+Extracts top keywords from each cluster to represent discovered topics.
+
+---
 
 ## 🛠️ Technologies Used
 
 | Category | Tools |
-| :--- | :--- |
+|---|---|
 | **Language** | Python 3.x |
 | **Frontend** | Streamlit |
-| **ML/NLP** | Scikit-Learn, NLTK (Stopwords) |
-| **Data** | Pandas, NumPy |
-| **Parsing** | Feedparser, Requests |
-| **Viz** | Matplotlib |
+| **Machine Learning** | Scikit-Learn |
+| **NLP** | TF-IDF, Stopword Removal |
+| **Data Handling** | Pandas |
+| **Visualization** | Matplotlib |
+| **RSS Parsing** | Feedparser |
+| **HTTP Requests** | Requests |
 
+---
 
 ## 📂 Project Structure
 
-
-
+```text
 News-Topic-Discovery-and-Analysis/
-├── app.py              # Main Streamlit application logic
-├── requirements.txt    # Python dependencies
-└── README.md           # Documentation
+│
+├── app.py
+├── requirements.txt
+└── README.md
+```
 
-
-
+---
 
 ## ⚙️ Installation
 
-### 1. Clone & Enter
+### 1️⃣ Clone Repository
 
-git clone [https://github.com/Anurag0018/News-Topic-Discovery-and-Analysis.git](https://github.com/Anurag0018/News-Topic-Discovery-and-Analysis.git)
+```bash
+git clone https://github.com/Anurag0018/News-Topic-Discovery-and-Analysis.git
+```
+
+---
+
+### 2️⃣ Move into Project Directory
+
+```bash
 cd News-Topic-Discovery-and-Analysis
+```
 
+---
 
-### 2. Setup Environment
+### 3️⃣ Create Virtual Environment (Optional)
 
-bash
-# Create a virtual environment (optional but recommended)
+#### Windows
+```bash
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+venv\Scripts\activate
+```
 
-# Install dependencies
+#### Linux / Mac
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+---
+
+### 4️⃣ Install Dependencies
+
+```bash
 pip install -r requirements.txt
+```
 
+---
 
-### 3. Launch
+### 5️⃣ Run Streamlit Application
+
+```bash
 streamlit run app.py
+```
 
+---
 
+## 📊 How It Works
 
+1. Fetches RSS news feeds
+2. Cleans and preprocesses article text
+3. Converts text into TF-IDF vectors
+4. Applies K-Means clustering
+5. Displays discovered topics
+6. Visualizes topic distribution
+7. Allows CSV export of analyzed results
 
+---
+
+## 🎯 Future Improvements
+
+- 🔹 Add more news sources
+- 🔹 Add sentiment analysis
+- 🔹 Add word cloud visualization
+- 🔹 Deploy online using Streamlit Cloud
+- 🔹 Add real-time trend analysis
+- 🔹 Improve automatic topic naming
+
+---
+
+## 👨‍💻 Author
+
+### Anurag Jha
+
+GitHub: https://github.com/Anurag0018
+
+---
+
+## ⭐ Support
+
+If you found this project useful, consider giving it a ⭐ on GitHub.
